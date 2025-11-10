@@ -1,0 +1,29 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+    res.json({ 
+        message: 'Hello, World!' ,
+        status: 'success',
+        hostname: req.hostname,
+        timestamp: new Date().toISOString()
+
+
+    });
+});
+
+app.get/'health', (req, res) => {
+    res.json({ 
+        status: 'OK',
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString()
+    });
+}
+
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server is running at http://localhost:${port}`);
+});
+
+
+
