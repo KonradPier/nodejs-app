@@ -13,17 +13,22 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get/'health', (req, res) => {
+app.get('/health', (req, res) => {
     res.json({ 
         status: 'OK',
         uptime: process.uptime(),
         timestamp: new Date().toISOString()
     });
+});
+
+let server = null;
+if (require.main === module) {
+    server = app.listen(port, '0.0.0.0', () => {
+        console.log(`Server is running at http://localhost:${port}`);
+    });
 }
 
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Server is running at http://localhost:${port}`);
-});
+module.exports = { app, server };
 
 
 
