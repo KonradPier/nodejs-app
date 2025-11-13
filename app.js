@@ -4,7 +4,7 @@ const port = 3000;
 
 app.get('/', (req, res) => {
     res.json({ 
-        message: 'Hello, World! V2' ,
+        message: 'Hello, World! V3' ,
         status: 'success',
         hostname: req.hostname,
         timestamp: new Date().toISOString()
